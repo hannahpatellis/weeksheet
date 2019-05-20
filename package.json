@@ -1,26 +1,31 @@
 {
-  "name": "weeksheet",
-  "version": "0.1.0",
-  "devDependencies": {
-    "jest-expo": "27.0.0",
-    "react-native-scripts": "1.8.1",
-    "react-test-renderer": "16.0.0"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "name": "react-passport-example",
+  "version": "1.0.0",
+  "description": "React Passport Example",
+  "main": "index.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "server": "node index.js",
+    "client": "cd client && npm run start",
+    "start": "concurrently \"nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "jest": {
-    "preset": "jest-expo"
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "expo": "^27.0.4",
-    "react": "16.3.1",
-    "react-native": "0.55.2",
-    "react-navigation": "^1.0.0-beta.21"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.10.4",
+    "morgan": "^1.9.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "validator": "^7.0.0"
   }
 }
